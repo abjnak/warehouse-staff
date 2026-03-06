@@ -23,10 +23,9 @@ function CreatePurchaseRequestForm() {
   const [items, setitems] = useState([]);
   const [supplie, setsupplie] = useState([]);
   const [supplieid, setsupplieid] = useState("");
-  const [namematerial,setnamematerial] = useState([])
+  const [namematerial, setnamematerial] = useState([]);
 
   const [item, setitem] = useState([]);
-
 
   useEffect(() => {
     const fetchsupp = async () => {
@@ -43,24 +42,23 @@ function CreatePurchaseRequestForm() {
     fetchsupp();
   }, []);
 
-
   const deletes = (id) => {
     const deleteid = items?.filter((item) => item.id !== id);
     setitems(deleteid);
   };
   const addItems = () => {
     const item = {
-      id:Date.now(),
-      itemid:"",
+      id: Date.now(),
+      itemid: "",
       quantity: "",
       unitPrice: "",
       totalPrice: "",
     };
     setitems([...items, item]);
   };
-  const total = items.reduce((sum, number) =>{
-    return sum +(number.quantity * number.unitPrice)
-  },0)
+  const total = items.reduce((sum, number) => {
+    return sum + number.quantity * number.unitPrice;
+  }, 0);
 
   const handCreate = async (e) => {
     e.preventDefault();
@@ -76,7 +74,7 @@ function CreatePurchaseRequestForm() {
       };
 
       const res = await ImportReceipt(form);
-     
+
       const detailform = items.map((item) => {
         const formImport = {
           receiptId: res.id,
@@ -111,8 +109,8 @@ function CreatePurchaseRequestForm() {
           item={item}
           supplieid={supplieid}
           setsupplieid={setsupplieid}
-          namematerial = {namematerial}
-          setnamematerial = {setnamematerial}
+          namematerial={namematerial}
+          setnamematerial={setnamematerial}
         />
       </Container>
     </div>

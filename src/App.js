@@ -8,6 +8,7 @@ import MainLayout from "./layouts/MainLayout";
 import "./App.css";
 import Dashboar from "./pages/DashboardPages";
 import Inventory from "./pages/InventoryPages";
+import SystemSetting from "./pages/SystemSettingPages";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/DetailsPurchase/:id" element={<GetPuchasebyid />} />
           <Route path="/dashboard" element={<Dashboar/>}/>
           <Route path="/inventory" element={<Inventory/>}/>
+          <Route path="/settings" element={<SystemSetting/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

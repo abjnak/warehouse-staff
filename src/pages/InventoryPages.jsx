@@ -1,5 +1,12 @@
-export default function Inventory(){
+import { Col, Container, Row } from "react-bootstrap";
+import Inventory from "../components/Inventory";
+
+export default function InventoryPages(){
     return( <div>
-        <h1>-- inventory Page --</h1>
+     <Container>
+        <Row>
+         <Inventory/>
+        </Row>
+     </Container>
     </div>)
 }
