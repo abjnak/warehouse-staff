@@ -1,0 +1,311 @@
+{
+  "User": [
+    {
+      "id": "u_001",
+      "username": "admin",
+      "password": "123456",
+      "role": "ADMIN",
+      "createdAt": "2026-02-20T10:00:00Z"
+    },
+    {
+      "id": "u_002",
+      "username": "staff",
+      "password": "123456",
+      "role": "ADMIN",
+      "createdAt": "2026-02-20T10:00:00Z"
+    }
+  ],
+  "Category": [
+    {
+      "id": "cat_001",
+      "name": "Office Supplies",
+      "description": "Vật tư văn phòng",
+      "createdAt": "2026-02-20T10:00:00Z"
+    },
+    {
+      "id": "cat_002",
+      "name": "Office Supplies",
+      "description": "Vật tư văn xây dựng",
+      "createdAt": "2026-02-20T10:00:00Z"
+    }
+  ],
+  "Supplier": [
+    {
+      "id": "sup_001",
+      "name": "ABC Company",
+      "phone": "0123456789",
+      "address": "Hanoi",
+      "createdAt": "2026-02-20T10:00:00Z"
+    },
+    {
+      "id": "sup_002",
+      "name": "CDE Company",
+      "phone": "0123456780",
+      "address": "Ho Chi Minh",
+      "createdAt": "2026-02-20T10:00:00Z"
+    }
+  ],
+  "Item": [
+    {
+      "id": "item_001",
+      "code": "ITEM-001",
+      "name": "Giấy A4",
+      "categoryId": "cat_001",
+      "unit": "ream",
+      "costPrice": 50000,
+      "quantity": 100,
+      "minStock": 20,
+      "createdAt": "2026-02-20T10:00:00Z",
+      "updatedAt": "2026-02-20T10:00:00Z"
+    },
+    {
+      "id": "item_002",
+      "code": "ITEM-002",
+      "name": "Máy khoan",
+      "categoryId": "cat_002",
+      "unit": "cái",
+      "costPrice": 100000,
+      "quantity": 50,
+      "minStock": 20,
+      "createdAt": "2026-02-20T10:00:00Z",
+      "updatedAt": "2026-02-20T10:00:00Z"
+    }
+  ],
+  "ImportReceipt": [
+    {
+      "id": "imp_001",
+      "code": "IMP-20260220-001",
+      "supplierId": "sup_001",
+      "createdBy": "u_001",
+      "createdAt": "2026-02-20T10:00:00Z",
+      "note": "Nhập hàng tháng 2",
+      "totalAmount": 5000000,
+      "status": "COMPLETED"
+    },
+    {
+      "id": "imp_002",
+      "code": "IMP-20260220-001",
+      "supplierId": "sup_002",
+      "createdBy": "u_002",
+      "createdAt": "2026-02-20T10:00:00Z",
+      "note": "Nhập hàng cuối tháng",
+      "totalAmount": 100000,
+      "status": "iNCOMPLETED"
+    },
+    {
+      "id": "imp_003",
+      "code": "IMP-20260220-001",
+      "supplierId": "sup_002",
+      "createdBy": "u_002",
+      "createdAt": "2026-02-20T10:00:00Z",
+      "note": "Nhập hàng cuối tháng",
+      "totalAmount": 100000,
+      "status": "DRAFT"
+    },
+    {
+      "id": "8f85",
+      "code": "IMP-1772262420789",
+      "createdBy": "u_001",
+      "supplierId": "sup_002",
+      "createdAt": "2026-02-28",
+      "status": "COMPLETED",
+      "totalAmount": 149,
+      "note": ""
+    },
+    {
+      "id": "e636",
+      "code": "IMP-1772293373931",
+      "createdBy": "u_001",
+      "supplierId": "sup_001",
+      "createdAt": "2026-02-28",
+      "status": "COMPLETED",
+      "totalAmount": 6012,
+      "note": "nhập cuối tháng 2 "
+    },
+    {
+      "id": "2df7",
+      "code": "IMP-1772293484134",
+      "createdBy": "u_001",
+      "supplierId": "sup_002",
+      "createdAt": "2026-02-28",
+      "status": "iNCOMPLETED",
+      "totalAmount": 826,
+      "note": "nhập mới vật tư"
+    }
+  ],
+  "ImportReceiptItem": [
+    {
+      "id": "imp_item_001",
+      "receiptId": "imp_001",
+      "itemId": "item_001",
+      "quantity": 50,
+      "unitPrice": 50000,
+      "totalPrice": 2500000
+    },
+    {
+      "id": "084c",
+      "receiptId": "8f85",
+      "itemId": "item_001",
+      "quantity": 5,
+      "unitPrice": 5,
+      "totalPrice": 25
+    },
+    {
+      "id": "5408",
+      "receiptId": "8f85",
+      "itemId": "item_002",
+      "quantity": 2,
+      "unitPrice": 2,
+      "totalPrice": 4
+    },
+    {
+      "id": "8889",
+      "receiptId": "8f85",
+      "itemId": "item_002",
+      "quantity": 10,
+      "unitPrice": 12,
+      "totalPrice": 120
+    },
+    {
+      "id": "a208",
+      "receiptId": "e636",
+      "itemId": "",
+      "quantity": 3,
+      "unitPrice": 1000,
+      "totalPrice": 3000
+    },
+    {
+      "id": "db2e",
+      "receiptId": "e636",
+      "itemId": "item_001",
+      "quantity": 4,
+      "unitPrice": 3,
+      "totalPrice": 12
+    },
+    {
+      "id": "b6a3",
+      "receiptId": "e636",
+      "itemId": "item_002",
+      "quantity": 3,
+      "unitPrice": 1000,
+      "totalPrice": 3000
+    },
+    {
+      "id": "5b86",
+      "receiptId": "2df7",
+      "itemId": "",
+      "quantity": 1,
+      "unitPrice": 1,
+      "totalPrice": 1
+    },
+    {
+      "id": "ab6c",
+      "receiptId": "2df7",
+      "itemId": "item_002",
+      "quantity": 44,
+      "unitPrice": 3,
+      "totalPrice": 132
+    },
+    {
+      "id": "5480",
+      "receiptId": "2df7",
+      "itemId": "item_002",
+      "quantity": 5,
+      "unitPrice": 121,
+      "totalPrice": 605
+    },
+    {
+      "id": "74cb",
+      "receiptId": "2df7",
+      "itemId": "",
+      "quantity": 1,
+      "unitPrice": 88,
+      "totalPrice": 88
+    },
+    {
+      "id": "6417",
+      "receiptId": "41fc",
+      "itemId": "",
+      "quantity": null,
+      "unitPrice": null,
+      "totalPrice": null
+    },
+    {
+      "id": "f7b8",
+      "receiptId": "33e3",
+      "itemId": "",
+      "quantity": 3,
+      "unitPrice": 2,
+      "totalPrice": 6
+    },
+    {
+      "id": "d7ea",
+      "receiptId": "bc90",
+      "itemId": "item_002",
+      "quantity": 3,
+      "unitPrice": 3,
+      "totalPrice": 9
+    },
+    {
+      "id": "fa07",
+      "receiptId": "148b",
+      "itemId": "item_002",
+      "quantity": 4,
+      "unitPrice": 4,
+      "totalPrice": 16
+    },
+    {
+      "id": "cc9e",
+      "receiptId": "148b",
+      "itemId": "",
+      "quantity": 2,
+      "unitPrice": 2,
+      "totalPrice": 4
+    },
+    {
+      "id": "2600",
+      "receiptId": "cce2",
+      "itemId": "item_001",
+      "quantity": 2,
+      "unitPrice": 3,
+      "totalPrice": 6
+    },
+    {
+      "id": "f68f",
+      "receiptId": "cce2",
+      "itemId": "item_001",
+      "quantity": 1,
+      "unitPrice": 11188,
+      "totalPrice": 11188
+    },
+    {
+      "id": "ae36",
+      "receiptId": "cce2",
+      "itemId": "item_002",
+      "quantity": 2,
+      "unitPrice": 22,
+      "totalPrice": 44
+    }
+  ],
+  "ExportReceipt": [
+    {
+      "id": "exp_001",
+      "code": "EXP-20260220-001",
+      "createdBy": "u_002",
+      "createdAt": "2026-02-20T10:00:00Z",
+      "note": "Xuất cho phòng IT",
+      "totalAmount": 1000000,
+      "status": "COMPLETED"
+    }
+  ],
+  "ExportReceiptItem": [
+    {
+      "id": "exp_item_001",
+      "receiptId": "exp_001",
+      "itemId": "item_001",
+      "quantity": 20,
+      "unitPrice": 50000,
+      "totalPrice": 1000000
+    }
+  ]
+}

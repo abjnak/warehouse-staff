@@ -1,0 +1,32 @@
+/* ===== PURCHASE REQUEST LIST PAGE ===== */
+
+.purchase-request-page {
+  min-height: 100vh;
+  padding: 24px;
+  background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.purchase-request-card {
+  background: #111827;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  border: 1px solid #1f2937;
+  color: #e5e7eb;
+}
+
+.purchase-request-title {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.purchase-request-table {
+  margin-bottom: 0;
+  background: #020617;
+  color: #e5e7eb;
+}
+

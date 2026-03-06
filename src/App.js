@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/LoginPage";
+import LoginFoget from "./pages/LoginFoget";
+import PurchaseRequestPage from "./pages/PurchaseRequestPage";
+import CreatePurchaseRequestForm from "./pages/CreatePurchaseRequestForm";
+import GetPuchasebyid from "./pages/DetailsPurchasepage";
+import MainLayout from "./layouts/MainLayout";
+import "./App.css";
+import Dashboar from "./pages/DashboardPages";
+import Inventory from "./pages/InventoryPages";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+
+        <Route element={<MainLayout/>}>
+          <Route path="/foget-pass" element={<LoginFoget />} />
+          <Route path="/PurchaseRequest" element={<PurchaseRequestPage />} />
+          <Route
+            path="/CreatePuchase"
+            element={<CreatePurchaseRequestForm />}
+          />
+          <Route path="/DetailsPurchase/:id" element={<GetPuchasebyid />} />
+          <Route path="/dashboard" element={<Dashboar/>}/>
+          <Route path="/inventory" element={<Inventory/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

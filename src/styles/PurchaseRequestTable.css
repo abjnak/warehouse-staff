@@ -1,0 +1,114 @@
+/* ===== PURCHASE REQUEST TABLE (COMPONENT) ===== */
+
+.pr-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.pr-table-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.pr-table-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f9fafb;
+}
+
+.pr-table-subtitle {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.pr-create-btn {
+  background: #fbbf24;
+  border: none;
+  color: #111827;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 10px 14px;
+  white-space: nowrap;
+  transition: all 0.25s;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.pr-create-btn:hover {
+  background: #f59e0b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+}
+
+.pr-table {
+  margin-bottom: 0;
+  background: #020617;
+  color: #e5e7eb;
+  border-color: #374151;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pr-table thead th {
+  background: #111827;
+  border-color: #374151;
+  color: #e5e7eb;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 12px 12px;
+  white-space: nowrap;
+}
+
+.pr-table tbody td {
+  border-color: #374151;
+  color: #e5e7eb;
+  padding: 12px 12px;
+  background: #020617;
+  vertical-align: middle;
+}
+
+.pr-table tbody tr:hover td {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.pr-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #374151;
+  background: rgba(148, 163, 184, 0.08);
+  color: #d1d5db;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pr-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #64748b;
+}
+
+.pr-detail-btn {
+  background: transparent;
+  border: 1px solid #374151;
+  color: #e5e7eb;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 7px 10px;
+  transition: all 0.25s;
+}
+
+.pr-detail-btn:hover {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.55);
+  color: #bfdbfe;
+}
+

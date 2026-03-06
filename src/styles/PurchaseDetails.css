@@ -1,0 +1,42 @@
+/* ===== PURCHASE REQUEST DETAILS PAGE ===== */
+
+.purchase-details-page {
+  min-height: 100vh;
+  padding: 24px;
+  background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.purchase-details-card {
+  background: #111827;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  border: 1px solid #1f2937;
+  color: #e5e7eb;
+}
+
+.purchase-details-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #f9fafb;
+}
+
+.purchase-details-subtitle {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 20px;
+}
+
+.purchase-details-content {
+  font-size: 14px;
+  color: #e5e7eb;
+}
+
+.purchase-details-content p {
+  margin: 0;
+}
+

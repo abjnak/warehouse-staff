@@ -1,0 +1,394 @@
+/* ===== LOGIN PAGE LAYOUT ===== */
+
+.login-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-card {
+  background: #111827;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  border: 1px solid #1f2937;
+  width: 100%;
+  max-width: 900px;
+  color: #e5e7eb;
+}
+
+/* ===== LEFT SIDE ===== */
+
+.login-form {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #e5e7eb;
+}
+
+.login-form-wrapper {
+  width: 100%;
+}
+
+/* ===== BUTTON ===== */
+
+.register-btn {
+  width: 100%;
+  background: #fbbf24;
+  border: none;
+  color: #111827;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 12px;
+  transition: all 0.3s;
+}
+
+.register-btn:hover {
+  background: #f59e0b;
+}
+
+/* ===== RIGHT SIDE IMAGE ===== */
+
+.login-image {
+  height: 100%;
+  background-color: gray;
+}
+
+.login-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== FORGOT PASSWORD PAGE ===== */
+
+.foget-page-wrapper {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.foget-card {
+  background: #111827;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  border: 1px solid #1f2937;
+  max-width: 960px;
+  width: 100%;
+  color: #e5e7eb;
+}
+
+.foget-form-col {
+  padding: 40px 36px;
+}
+
+.foget-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f9fafb;
+  margin-bottom: 8px;
+}
+
+.foget-subtitle {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 24px;
+}
+
+.foget-highlight {
+  color: #fbbf24;
+}
+
+.foget-form-wrapper {
+  margin-top: 8px;
+}
+
+.foget-form .form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 8px;
+}
+
+.foget-form .form-control {
+  border-radius: 6px;
+  border: 1px solid #374151;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: #e5e7eb;
+  background: #020617;
+  margin-bottom: 18px;
+  transition: all 0.3s;
+}
+
+.foget-form .form-control::placeholder {
+  color: #6b7280;
+}
+
+.foget-form .form-control:focus {
+  border-color: #fbbf24;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.25);
+}
+
+.foget-submit-btn {
+  width: 100%;
+  background: #fbbf24;
+  border: none;
+  color: #111827;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.foget-submit-btn:hover {
+  background: #f59e0b;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.55);
+  transform: translateY(-1px);
+}
+
+.foget-submit-btn:active {
+  transform: translateY(0);
+}
+
+.foget-side {
+  background: linear-gradient(145deg, #0f172a, #020617);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid #1f2937;
+}
+
+.foget-side-title {
+  font-size: 13px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 16px;
+}
+
+.foget-side-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 10px;
+}
+
+.foget-side-text {
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+.foget-side-stat {
+  font-size: 13px;
+  color: #d1d5db;
+  margin-top: 12px;
+}
+
+.foget-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.08);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 11px;
+  color: #6ee7b7;
+  margin-top: 16px;
+}
+
+.foget-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #6ee7b7;
+}
+
+
+.google-btn:hover {
+  background: #f8f9fa;
+  border-color: #d0d0d0;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===== DIVIDER TEXT ===== */
+
+.divider-text {
+  text-align: center;
+  margin: 25px 0;
+  font-size: 13px;
+  color: #999;
+  font-weight: 400;
+}
+
+/* ===== FORM LABELS ===== */
+
+.login-form .form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+/* ===== FORM INPUTS ===== */
+
+.login-form .form-control {
+  border-radius: 6px;
+  border: 1px solid #374151;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: #e5e7eb;
+  background: #020617;
+  margin-bottom: 18px;
+  transition: all 0.3s;
+}
+
+.login-form .form-control::placeholder {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.login-form .form-control:focus {
+  border-color: #fbbf24;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.25);
+}
+
+/* ===== LOGIN FORM HEADER ===== */
+
+.login-form-header {
+  margin-bottom: 18px;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #f9fafb;
+  margin-bottom: 6px;
+}
+
+.login-subtitle {
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.5;
+}
+
+.login-highlight {
+  color: #fbbf24;
+}
+
+/* ===== REGISTER BUTTON ===== */
+
+.register-btn {
+  width: 100%;
+  background: #fbbf24;
+  border: none;
+  color: #111827;
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 8px;
+  padding: 13px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.register-btn:hover {
+  background: #f59e0b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.55);
+  transform: translateY(-2px);
+}
+
+/* ===== LOGIN RIGHT SIDE ===== */
+
+.login-side {
+  background: linear-gradient(145deg, #0f172a, #020617);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid #1f2937;
+  color: #e5e7eb;
+}
+
+.login-side-title {
+  font-size: 13px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 16px;
+}
+
+.login-side-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 10px;
+}
+
+.login-side-text {
+  font-size: 13px;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+.login-side-stat {
+  font-size: 13px;
+  color: #d1d5db;
+  margin-top: 12px;
+}
+
+.login-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59, 130, 246, 0.09);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 11px;
+  color: #93c5fd;
+  margin-top: 16px;
+}
+
+.login-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #93c5fd;
+}
+
+.register-btn:active {
+  transform: translateY(0);
+}
+
+.login-image {
+  height: 100%;
+  background-color: gray;
+}
+
+.login-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
