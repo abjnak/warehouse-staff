@@ -50,10 +50,53 @@ export const Item = async () => {
   }
   return listitem.data;
 };
+export const ItembyID = async (id) => {
+  const listitem = await axios.get(`http://localhost:3001/Item/${id}`);
+  if (!listitem.data) {
+    throw new Error("không có data");
+  }
+  return listitem.data;
+};
 export const ChangestatusHande = async (id, status) => {
   const getPucharse = await axios.patch(
     `http://localhost:3001/ImportReceipt/${id}`,
     { status },
   );
   return getPucharse.data;
+};
+
+export const Sumquantity = async (id,quantity) => {
+  const getPucharse = await axios.patch(
+    `http://localhost:3001/Item/${id}`,
+    { quantity },
+  );
+  return getPucharse.data;
+};
+
+export const Getitem = async (receiptId) => {
+  const listitem = await axios.get(
+    `http://localhost:3001/ImportReceiptItem?receiptId=${receiptId}`,
+  );
+
+  if (!listitem.data) {
+    throw new Error("không có data");
+  }
+  console.log("API data:", listitem.data);
+  return listitem.data;
+};
+
+export const Category = async () => {
+  const listitem = await axios.get(`http://localhost:3001/Category`);
+  if (!listitem.data) {
+    throw new Error("không có data");
+  }
+  return listitem.data;
+};
+
+export const ImportReceiptItem = async () => {
+  const listitem = await axios.get(`http://localhost:3001/ImportReceiptItem`);
+  if (!listitem.data) {
+    throw new Error("không có data");
+  }
+  return listitem.data;
 };

@@ -7,8 +7,13 @@ import { useParams } from "react-router-dom";
 import {
   ChangestatusHande,
   GetImportReceiptItem,
+  Getitem,
   ImportReceiptid,
+  ImportReceiptItem,
+  ImportReceiptstatus,
   Item,
+  ItembyID,
+  Sumquantity,
   Supplier,
 } from "../services/PurchaseRequest";
 import Getpucharsebyid from "../components/DetailsCom";
@@ -21,6 +26,8 @@ export default function GetPuchasebyid() {
   const [user, setuser] = useState([]);
   const [ImportReceiptItems, setImportReceiptItems] = useState([]);
   const [getitem, setgetitem] = useState([]);
+  const [ImportReceipt, setImportReceipt] = useState([]);
+  const [ImportReceiptItemss, setImportReceiptItem] = useState([]);
 
   useEffect(() => {
     const getpubyid = async () => {
@@ -36,17 +43,18 @@ export default function GetPuchasebyid() {
     getpubyid();
   }, [id]);
 
-  console.log("data:" + ImportReceiptItems);
-
   useEffect(() => {
     const fetchdata = async () => {
       try {
         const params = await Supplier();
         const users = await User();
         const dataitem = await Item();
+        const dataImportReceipt = await ImportReceiptstatus();
+        const dataImportReceiptItem = await ImportReceiptItem();
 
+        setImportReceipt(dataImportReceipt);
+        setImportReceiptItem(dataImportReceiptItem);
         setgetitem(dataitem);
-
         setuser(users);
         setsupplie(params);
       } catch (error) {
@@ -59,11 +67,25 @@ export default function GetPuchasebyid() {
   const changestatus = async (id, status) => {
     try {
       const change = await ChangestatusHande(id, status);
+      const dataitem = await Getitem(id);
+      if (change.status === "COMPLETED") {
+        for (const i of dataitem) {
+          const getItembyid = await ItembyID(i.itemId);
+          const newquantity = i.quantity + getItembyid.quantity;
+          await Sumquantity(i.itemId, newquantity);
+          
+        }
+      }
+
+      setImportReceiptItem(dataitem);
       setgetpucharse(change);
     } catch (error) {
       console.log(error);
     }
   };
+  console.log("data ; " + getpucharse?.id, getpucharse?.status);
+  console.log("data ; ", ImportReceiptItemss);
+
   const getsupplieid = supplie.find((su) => su.id === getpucharse?.supplierId);
   const getuserid = user.find((su) => su.id === getpucharse?.createdBy);
 

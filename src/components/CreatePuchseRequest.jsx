@@ -51,6 +51,7 @@ function CreatePuchase({
                 type="text"
                 value={supplieid}
                 onChange={(e) => setsupplieid(e.target.value)}
+                required
               >
                 
                 <option value="">Supplie:</option>
@@ -81,10 +82,20 @@ function CreatePuchase({
           <h3 className="create-pr-section-title">
             📦 Danh sách vật tư cần mua
           </h3>
-          <p className="create-pr-section-desc">
-            Đây mới là phần bạn đang nghĩ tới
-          </p>
-
+         
+           <div className="create-pr-actions">
+          <Button
+            as={Link}
+            to="/PurchaseRequest"
+            type="button"
+            className="create-pr-cancel-btn"
+          >
+            Hủy
+          </Button>
+          <Button type="submit" className="create-pr-submit-btn">
+            Tạo đơn yêu cầu
+          </Button>
+        </div>
           <div className="create-pr-table-wrapper">
             <Table
               striped
@@ -121,7 +132,7 @@ function CreatePuchase({
                           {item?.map((nameitem) => {
                             return (
                               <option key={nameitem.id} value={nameitem.id}>
-                                {nameitem.name}
+                              {nameitem.id}  -{nameitem.name}
                               </option>
                             );
                           })}
@@ -169,19 +180,7 @@ function CreatePuchase({
           </div>
         </div>
 
-        <div className="create-pr-actions">
-          <Button
-            as={Link}
-            to="/PurchaseRequest"
-            type="button"
-            className="create-pr-cancel-btn"
-          >
-            Hủy
-          </Button>
-          <Button type="submit" className="create-pr-submit-btn">
-            Tạo đơn yêu cầu
-          </Button>
-        </div>
+       
       </Form>
     </div>
   );

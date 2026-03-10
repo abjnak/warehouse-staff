@@ -3,7 +3,7 @@ import { Button, Form, Table } from "react-bootstrap";
 import "../styles/PurchaseRequestTable.css";
 import { Link } from "react-router-dom";
 
-function Inventory({ data, handfiler, arr, suppli, user }) {
+function Inventory({ getitem, getcattegory,status }) {
   return (
     <div className="pr-table-wrapper">
       <div className="pr-table-header">
@@ -26,29 +26,40 @@ function Inventory({ data, handfiler, arr, suppli, user }) {
         <thead>
           <tr>
             <th>STT</th>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Unit</th>
+            <th>Material</th>
+            <th>Category</th>
             <th>Quantity</th>
+            <th>Unit</th>
             <th>MinStock</th>
             <th>Status</th>
+            <th>Last Update</th>
             <th colSpan={2}>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-             <td></td>
+          {getitem?.map((item, index) => {
+            const namecate = getcattegory.find(
+              (cat) => cat.id === item.categoryId,
+            );
 
-            <td>
-              <Button variant="primary">Detail</Button>
-            </td>
-          </tr>
+            return (
+              <tr key={item?.id}>
+                <td>{index + 1}</td>
+                <td>{item?.name}</td>
+                <td>{namecate?.name}</td>
+                <td>{item?.quantity}</td>
+                <td>{item?.unit}</td>
+                <td>{item?.minStock}</td>
+                <td>{status(item)}</td>
+                <td>{item?.updatedAt}</td>
+                <td></td>
+
+                <td>
+                  <Button variant="primary">Detail</Button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>{" "}
     </div>

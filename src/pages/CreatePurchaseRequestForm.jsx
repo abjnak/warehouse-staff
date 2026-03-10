@@ -14,7 +14,7 @@ import {
 import { Container } from "react-bootstrap";
 function CreatePurchaseRequestForm() {
   const userss = JSON.parse(localStorage.getItem("user"));
-  const navigate = useNavigate();
+
   const today = new Date().toISOString().split("T")[0];
   const [name, setname] = useState(userss.id || "loi");
   const [date, setdate] = useState(today);
