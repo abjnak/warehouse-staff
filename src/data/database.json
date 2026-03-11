@@ -71,7 +71,7 @@
       "categoryId": "cat_002",
       "unit": "cái",
       "costPrice": 100000,
-      "quantity": 10,
+      "quantity": 16,
       "minStock": 20,
       "createdAt": "2026-02-20T10:00:00Z",
       "updatedAt": "2026-02-20T10:00:00Z"
@@ -83,7 +83,7 @@
       "categoryId": "cat_002",
       "unit": "cái",
       "costPrice": 100000,
-      "quantity": 12,
+      "quantity": 26,
       "minStock": 20,
       "createdAt": "2026-02-20T10:00:00Z",
       "updatedAt": "2026-02-20T10:00:00Z"
@@ -129,6 +129,36 @@
       "status": "iNCOMPLETED",
       "totalAmount": 539,
       "note": ""
+    },
+    {
+      "id": "eda2",
+      "code": "IMP-1773146865722",
+      "createdBy": "u_001",
+      "supplierId": "sup_001",
+      "createdAt": "2026-03-10",
+      "status": "COMPLETED",
+      "totalAmount": 81,
+      "note": ""
+    },
+    {
+      "id": "8684",
+      "code": "IMP-1773153273401",
+      "createdBy": "u_001",
+      "supplierId": "sup_001",
+      "createdAt": "2026-03-10",
+      "status": "COMPLETED",
+      "totalAmount": 25,
+      "note": ""
+    },
+    {
+      "id": "36aa",
+      "code": "IMP-1773153403386",
+      "createdBy": "u_001",
+      "supplierId": "sup_001",
+      "createdAt": "2026-03-10",
+      "status": "COMPLETED",
+      "totalAmount": 36,
+      "note": ""
     }
   ],
   "ImportReceiptItem": [
@@ -171,6 +201,30 @@
       "quantity": 77,
       "unitPrice": 7,
       "totalPrice": 539
+    },
+    {
+      "id": "7ee6",
+      "receiptId": "eda2",
+      "itemId": "item_003",
+      "quantity": 9,
+      "unitPrice": 9,
+      "totalPrice": 81
+    },
+    {
+      "id": "6da7",
+      "receiptId": "8684",
+      "itemId": "item_003",
+      "quantity": 5,
+      "unitPrice": 5,
+      "totalPrice": 25
+    },
+    {
+      "id": "6537",
+      "receiptId": "36aa",
+      "itemId": "item_002",
+      "quantity": 6,
+      "unitPrice": 6,
+      "totalPrice": 36
     }
   ],
   "ExportReceipt": [

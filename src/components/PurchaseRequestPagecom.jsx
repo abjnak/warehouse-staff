@@ -14,10 +14,14 @@ function PurchaseRequestPagecom({ data, handfiler, arr, suppli, user }) {
           <p className="pr-table-subtitle">
             Theo dõi trạng thái các phiếu yêu cầu mua vật tư trong kho.
           </p>
-        </div>
-        <Button as={Link} to="/CreatePuchase" className="pr-create-btn">
-          Tạo đơn mua vật tư mới
+        </div >
+        <div> <Button as={Link} to="/CreatePuchase" className="pr-create-btn">
+          IMPORT
         </Button>
+        <Button as={Link} to="/ExportReceiptPage" className="pr-create-btn">
+          EXPORT
+        </Button></div>
+       
       </div>
       <div>
         {" "}

@@ -65,11 +65,10 @@ export const ChangestatusHande = async (id, status) => {
   return getPucharse.data;
 };
 
-export const Sumquantity = async (id,quantity) => {
-  const getPucharse = await axios.patch(
-    `http://localhost:3001/Item/${id}`,
-    { quantity },
-  );
+export const Sumquantity = async (id, quantity) => {
+  const getPucharse = await axios.patch(`http://localhost:3001/Item/${id}`, {
+    quantity,
+  });
   return getPucharse.data;
 };
 
@@ -81,7 +80,19 @@ export const Getitem = async (receiptId) => {
   if (!listitem.data) {
     throw new Error("không có data");
   }
-  console.log("API data:", listitem.data);
+
+  return listitem.data;
+};
+
+export const GetitemHistory = async (Itemid) => {
+  const listitem = await axios.get(
+    `http://localhost:3001/ImportReceiptItem?itemId=${Itemid}`,
+  );
+
+  if (!listitem.data) {
+    throw new Error("không có data");
+  }
+
   return listitem.data;
 };
 

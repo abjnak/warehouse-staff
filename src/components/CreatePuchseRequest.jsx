@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Form, Button, Table } from "react-bootstrap";
-import { CreatePuchases } from "../services/PurchaseRequest";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CreatePuchase({
   handCreate,
@@ -16,7 +14,6 @@ function CreatePuchase({
   item,
   supplieid,
   setsupplieid,
- 
 }) {
   return (
     <div className="create-pr-form-wrapper">
@@ -53,7 +50,6 @@ function CreatePuchase({
                 onChange={(e) => setsupplieid(e.target.value)}
                 required
               >
-                
                 <option value="">Supplie:</option>
                 {supplie?.map((sup) => {
                   return (
@@ -82,20 +78,20 @@ function CreatePuchase({
           <h3 className="create-pr-section-title">
             📦 Danh sách vật tư cần mua
           </h3>
-         
-           <div className="create-pr-actions">
-          <Button
-            as={Link}
-            to="/PurchaseRequest"
-            type="button"
-            className="create-pr-cancel-btn"
-          >
-            Hủy
-          </Button>
-          <Button type="submit" className="create-pr-submit-btn">
-            Tạo đơn yêu cầu
-          </Button>
-        </div>
+
+          <div className="create-pr-actions">
+            <Button
+              as={Link}
+              to="/PurchaseRequest"
+              type="button"
+              className="create-pr-cancel-btn"
+            >
+              Hủy
+            </Button>
+            <Button type="submit" className="create-pr-submit-btn">
+              Tạo đơn yêu cầu
+            </Button>
+          </div>
           <div className="create-pr-table-wrapper">
             <Table
               striped
@@ -128,11 +124,13 @@ function CreatePuchase({
                             setitems(newite);
                           }}
                         >
-                          <option value="" disabled>-- Chọn vật tư --</option>
+                          <option value="" disabled>
+                            -- Chọn vật tư --
+                          </option>
                           {item?.map((nameitem) => {
                             return (
                               <option key={nameitem.id} value={nameitem.id}>
-                              {nameitem.id}  -{nameitem.name}
+                                {nameitem.id} -{nameitem.name}
                               </option>
                             );
                           })}
@@ -179,8 +177,6 @@ function CreatePuchase({
             </Button>
           </div>
         </div>
-
-       
       </Form>
     </div>
   );

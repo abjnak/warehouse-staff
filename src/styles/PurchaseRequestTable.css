@@ -27,15 +27,14 @@
 }
 
 .pr-create-btn {
-  background: #fbbf24;
-  border: none;
-  color: #111827;
-  font-weight: 700;
-  border-radius: 10px;
-  padding: 10px 14px;
-  white-space: nowrap;
-  transition: all 0.25s;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+     background: #fbbf24;
+
+    color: #111827;
+    font-weight: 700;
+  
+    padding: 10px 9px;
+    white-space: nowrap;
+  
 }
 
 .pr-create-btn:hover {

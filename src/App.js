@@ -10,6 +10,9 @@ import Dashboar from "./pages/DashboardPages";
 import Inventory from "./pages/InventoryPages";
 import SystemSetting from "./pages/SystemSettingPages";
 
+import ImportReceiptHistoryPage from "./pages/ImportReceiptHistoryPage";
+import ExportReceiptPage from "./pages/ExportReceiptPage";
+
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +30,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboar/>}/>
           <Route path="/inventory" element={<Inventory/>}/>
           <Route path="/settings" element={<SystemSetting/>}/>
+          <Route path="/ImportReceiptHistory/:id" element={<ImportReceiptHistoryPage/>}/>
+          <Route path="/ExportReceiptPage" element={<ExportReceiptPage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -3,7 +3,7 @@ import { Button, Form, Table } from "react-bootstrap";
 import "../styles/PurchaseRequestTable.css";
 import { Link } from "react-router-dom";
 
-function Inventory({ getitem, getcattegory,status }) {
+function Inventory({ getitem, getcattegory, status }) {
   return (
     <div className="pr-table-wrapper">
       <div className="pr-table-header">
@@ -33,7 +33,7 @@ function Inventory({ getitem, getcattegory,status }) {
             <th>MinStock</th>
             <th>Status</th>
             <th>Last Update</th>
-            <th colSpan={2}>Action</th>
+            <th>History</th>
           </tr>
         </thead>
         <tbody>
@@ -52,10 +52,10 @@ function Inventory({ getitem, getcattegory,status }) {
                 <td>{item?.minStock}</td>
                 <td>{status(item)}</td>
                 <td>{item?.updatedAt}</td>
-                <td></td>
-
                 <td>
-                  <Button variant="primary">Detail</Button>
+                  <Button as={Link} to={`/ImportReceiptHistory/${item.id}`} className="pr-create-btn">
+                    History
+                  </Button>
                 </td>
               </tr>
             );
