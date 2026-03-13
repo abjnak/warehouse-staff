@@ -59,7 +59,7 @@
       "categoryId": "cat_001",
       "unit": "ream",
       "costPrice": 50000,
-      "quantity": 110,
+      "quantity": 104,
       "minStock": 20,
       "createdAt": "2026-02-20T10:00:00Z",
       "updatedAt": "2026-02-20T10:00:00Z"
@@ -71,7 +71,7 @@
       "categoryId": "cat_002",
       "unit": "cái",
       "costPrice": 100000,
-      "quantity": 16,
+      "quantity": 12,
       "minStock": 20,
       "createdAt": "2026-02-20T10:00:00Z",
       "updatedAt": "2026-02-20T10:00:00Z"
@@ -83,7 +83,7 @@
       "categoryId": "cat_002",
       "unit": "cái",
       "costPrice": 100000,
-      "quantity": 26,
+      "quantity": 31,
       "minStock": 20,
       "createdAt": "2026-02-20T10:00:00Z",
       "updatedAt": "2026-02-20T10:00:00Z"
@@ -126,7 +126,7 @@
       "createdBy": "u_001",
       "supplierId": "sup_001",
       "createdAt": "2026-03-10",
-      "status": "iNCOMPLETED",
+      "status": "INCOMPLETED",
       "totalAmount": 539,
       "note": ""
     },
@@ -158,6 +158,16 @@
       "createdAt": "2026-03-10",
       "status": "COMPLETED",
       "totalAmount": 36,
+      "note": ""
+    },
+    {
+      "id": "e851",
+      "code": "IMP-1773384021706",
+      "createdBy": "u_001",
+      "supplierId": "sup_002",
+      "createdAt": "2026-03-13",
+      "status": "COMPLETED",
+      "totalAmount": 54,
       "note": ""
     }
   ],
@@ -225,6 +235,30 @@
       "quantity": 6,
       "unitPrice": 6,
       "totalPrice": 36
+    },
+    {
+      "id": "e12a",
+      "receiptId": "e851",
+      "itemId": "item_003",
+      "quantity": 5,
+      "unitPrice": 5,
+      "totalPrice": 25
+    },
+    {
+      "id": "b40b",
+      "receiptId": "e851",
+      "itemId": "item_002",
+      "quantity": 4,
+      "unitPrice": 5,
+      "totalPrice": 20
+    },
+    {
+      "id": "2c4e",
+      "receiptId": "e851",
+      "itemId": "item_001",
+      "quantity": 3,
+      "unitPrice": 3,
+      "totalPrice": 9
     }
   ],
   "ExportReceipt": [
@@ -232,10 +266,51 @@
       "id": "exp_001",
       "code": "EXP-20260220-001",
       "createdBy": "u_002",
+      "departmentId": "dep_001",
       "createdAt": "2026-02-20T10:00:00Z",
       "note": "Xuất cho phòng IT",
       "totalAmount": 1000000,
       "status": "COMPLETED"
+    },
+    {
+      "id": "1f86",
+      "code": "EXP-1773233065841",
+      "createdBy": "u_001",
+      "departmentId": "dep_001",
+      "createdAt": "2026-03-11",
+      "status": "COMPLETED",
+      "totalAmount": 9,
+      "note": "sd"
+    },
+    {
+      "id": "2df1",
+      "code": "EXP-1773405976690",
+      "createdBy": "u_001",
+      "departmentId": "dep_002",
+      "createdAt": "2026-03-13",
+      "status": "COMPLETED",
+      "totalAmount": 0,
+      "note": ""
+    },
+    {
+      "id": "1c97",
+      "code": "EXP-1773406937133",
+      "createdBy": "u_001",
+      "departmentId": "dep_001",
+      "createdAt": "2026-03-13",
+      "status": "INCOMPLETED",
+      "totalAmount": 0,
+      "note": ""
+    },
+    {
+      "id": "56d8",
+      "code": "EXP-1773407063038",
+      "createdBy": "u_001",
+      "departmentId": "dep_002",
+      "createdAt": "2026-03-13",
+      "status": "COMPLETED",
+      "totalAmount": 0,
+      "note": ""
     }
   ],
   "ExportReceiptItem": [
@@ -246,6 +321,44 @@
       "quantity": 20,
       "unitPrice": 50000,
       "totalPrice": 1000000
+    },
+    {
+      "id": "19c8",
+      "receiptId": "1f86",
+      "itemId": "item_001",
+      "quantity": 3,
+      "unitPrice": 3,
+      "totalPrice": 9
+    },
+    {
+      "id": "66fe",
+      "receiptId": "2df1",
+      "itemId": "item_002",
+      "quantity": 8,
+      "unitPrice": 0,
+      "totalPrice": 0
+    },
+    {
+      "id": "14b4",
+      "receiptId": "56d8",
+      "itemId": "item_001",
+      "quantity": 3,
+      "unitPrice": 0,
+      "totalPrice": 0
+    }
+  ],
+  "Departments": [
+    {
+      "id": "dep_001",
+      "name": "IT Departments"
+    },
+    {
+      "id": "dep_002",
+      "name": "Production Departments"
+    },
+    {
+      "id": "dep_003",
+      "name": "Office Departments"
     }
   ]
 }

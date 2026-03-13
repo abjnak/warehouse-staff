@@ -22,6 +22,12 @@ export const GetImportReceiptItem = async (receiptId) => {
   );
   return res.data;
 };
+export const ExportReceiptid = async (id) => {
+  const getPucharse = await axios.get(
+    `http://localhost:3001/ExportReceipt/${id}`,
+  );
+  return getPucharse.data;
+};
 export const ImportReceiptid = async (id) => {
   const getPucharse = await axios.get(
     `http://localhost:3001/ImportReceipt/${id}`,
@@ -57,9 +63,17 @@ export const ItembyID = async (id) => {
   }
   return listitem.data;
 };
-export const ChangestatusHande = async (id, status) => {
+export const UpdateSatusImport = async (id, status) => {
   const getPucharse = await axios.patch(
     `http://localhost:3001/ImportReceipt/${id}`,
+    { status },
+  );
+  return getPucharse.data;
+};
+
+export const UpdateSatusExport = async (id, status) => {
+  const getPucharse = await axios.patch(
+    `http://localhost:3001/ExportReceipt/${id}`,
     { status },
   );
   return getPucharse.data;
@@ -110,4 +124,36 @@ export const ImportReceiptItem = async () => {
     throw new Error("không có data");
   }
   return listitem.data;
+};
+
+export const GetExportReceiptbyId = async (receiptId) => {
+  const listitem = await axios.get(`http://localhost:3001/ExportReceiptItem?receiptId=${receiptId}`);
+ 
+  return listitem.data;
+};
+
+
+export const Department = async ()=>{
+ const listdata = await axios.get(`http://localhost:3001/Departments`);
+ if(!listdata.data){
+  throw new Error("không có data");
+ }
+ return listdata.data;
+};
+export const ExportReceipt = async ()=>{
+ const listdata = await axios.get(`http://localhost:3001/ExportReceipt`);
+ if(!listdata.data){
+  throw new Error("không có data");
+ }
+ return listdata.data;
+};
+
+
+export const AddExportReceipt = async (data) => {
+  const res = await axios.post(`http://localhost:3001/ExportReceipt`, data);
+  return res.data;
+};
+export const AddExportReceiptItem= async (data) => {
+  const res = await axios.post(`http://localhost:3001/ExportReceiptItem`, data);
+  return res.data;
 };

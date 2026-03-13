@@ -26,7 +26,7 @@ function App() {
             path="/CreatePuchase"
             element={<CreatePurchaseRequestForm />}
           />
-          <Route path="/DetailsPurchase/:id" element={<GetPuchasebyid />} />
+          <Route path="/DetailsPurchase/:code/:id" element={<GetPuchasebyid />} />
           <Route path="/dashboard" element={<Dashboar/>}/>
           <Route path="/inventory" element={<Inventory/>}/>
           <Route path="/settings" element={<SystemSetting/>}/>

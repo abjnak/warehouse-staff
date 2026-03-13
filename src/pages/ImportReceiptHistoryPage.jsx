@@ -39,9 +39,7 @@ function ImportReceiptHistoryPage() {
   }, []);
 
 
-  console.log("data :", historyImportReceiptItem);
-  console.log("data :",typeof historyImportReceiptItem);
-  console.log("data :",typeof historyImportReceiptItem);
+
   return (
     <div>
       <Container>

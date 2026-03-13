@@ -5,37 +5,51 @@ import "../styles/PurchaseDetails.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
-  ChangestatusHande,
+
+  Department,
+  ExportReceiptid,
+  GetExportReceiptbyId,
   GetImportReceiptItem,
   Getitem,
   ImportReceiptid,
-  ImportReceiptItem,
-  ImportReceiptstatus,
   Item,
   ItembyID,
   Sumquantity,
   Supplier,
+  UpdateSatusExport,
+  UpdateSatusImport,
 } from "../services/PurchaseRequest";
 import Getpucharsebyid from "../components/DetailsCom";
 import { User } from "../services/authService";
 
 export default function GetPuchasebyid() {
-  const { id } = useParams();
+  const {code, id } = useParams();
   const [getpucharse, setgetpucharse] = useState(null);
+  const [ExportReceiptsId, setExportReceiptsId] = useState(null);
   const [supplie, setsupplie] = useState([]);
   const [user, setuser] = useState([]);
   const [ImportReceiptItems, setImportReceiptItems] = useState([]);
+  const [depart, setdepart] = useState([]);
+  const [DetailsExportReceipts, setDetailsExportReceipts] = useState([]);
+
   const [getitem, setgetitem] = useState([]);
-  const [ImportReceipt, setImportReceipt] = useState([]);
-  const [ImportReceiptItemss, setImportReceiptItem] = useState([]);
 
   useEffect(() => {
     const getpubyid = async () => {
       try {
-        const params = await ImportReceiptid(id);
+        if (code.startsWith("IMP")) {
+          const params = await ImportReceiptid(id);
+          setgetpucharse(params);
+        }
+        if (code.startsWith("EXP")) {
+          const dataExportReceipts = await ExportReceiptid(id);
+          setExportReceiptsId(dataExportReceipts);
+        }
+
         const dataImportReceiptItems = await GetImportReceiptItem(id);
+        const dataExport = await GetExportReceiptbyId(id);
+        setDetailsExportReceipts(dataExport);
         setImportReceiptItems(dataImportReceiptItems);
-        setgetpucharse(params);
       } catch (error) {
         console.log(error);
       }
@@ -43,17 +57,18 @@ export default function GetPuchasebyid() {
     getpubyid();
   }, [id]);
 
+  const datarecep = { ...getpucharse, ...ExportReceiptsId };
+  const datadetails = [...ImportReceiptItems, ...DetailsExportReceipts];
+
+ 
   useEffect(() => {
     const fetchdata = async () => {
       try {
         const params = await Supplier();
         const users = await User();
         const dataitem = await Item();
-        const dataImportReceipt = await ImportReceiptstatus();
-        const dataImportReceiptItem = await ImportReceiptItem();
-
-        setImportReceipt(dataImportReceipt);
-        setImportReceiptItem(dataImportReceiptItem);
+        const datadepart = await Department();
+        setdepart(datadepart);
         setgetitem(dataitem);
         setuser(users);
         setsupplie(params);
@@ -66,29 +81,49 @@ export default function GetPuchasebyid() {
 
   const changestatus = async (id, status) => {
     try {
-      const change = await ChangestatusHande(id, status);
-      const dataitem = await Getitem(id);
-      if (change.status === "COMPLETED") {
-        for (const i of dataitem) {
-          const getItembyid = await ItembyID(i.itemId);
-          const newquantity = i.quantity + getItembyid.quantity;
-          await Sumquantity(i.itemId, newquantity);
-          
+      let changes = null;
+      if (code.startsWith("IMP")) {
+        const change = await UpdateSatusImport(id, status);
+        const dataitem = await Getitem(id);
+        if (change.status === "COMPLETED") {
+          for (const i of dataitem) {
+            const getItembyid = await ItembyID(i.itemId);
+            const newquantity = i.quantity + getItembyid.quantity;
+            await Sumquantity(i.itemId, newquantity);
+          }
+          changes = change;
         }
       }
-
-      setImportReceiptItem(dataitem);
-      setgetpucharse(change);
+      if (code.startsWith("EXP")) {
+        const change = await UpdateSatusExport(id, status);
+        const dataitem = await GetExportReceiptbyId(id);
+        if (change.status === "COMPLETED") {
+          for (const i of dataitem) {
+            const getItembyid = await ItembyID(i.itemId);
+            if (i.quantity > 0) {
+              const newquantity = getItembyid.quantity - i.quantity;
+              await Sumquantity(i.itemId, newquantity);
+            }
+          }
+          changes = change;
+        }
+      }
+     console.log("status" , changes)
+      setgetpucharse(changes);
     } catch (error) {
       console.log(error);
     }
   };
-  console.log("data ; " + getpucharse?.id, getpucharse?.status);
-  console.log("data ; ", ImportReceiptItemss);
 
   const getsupplieid = supplie.find((su) => su.id === getpucharse?.supplierId);
-  const getuserid = user.find((su) => su.id === getpucharse?.createdBy);
+  const getdepartmenid = depart.find(
+    (su) => su.id === ExportReceiptsId?.departmentId,
+  );
 
+  const getuserid = user.find((su) => su.id === getpucharse?.createdBy);
+  const getuser = user.find((su) => su.id === ExportReceiptsId?.createdBy);
+  const dataPaten = { ...getsupplieid, ...getdepartmenid };
+  const datausers = { ...getuser, ...getuserid };
   return (
     <div className="purchase-details-page">
       <Container className="purchase-details-card">
@@ -102,12 +137,13 @@ export default function GetPuchasebyid() {
             </p>
             <div className="purchase-details-content">
               <Getpucharsebyid
-                data={getpucharse}
-                supplie={getsupplieid}
-                getuserid={getuserid}
-                ImportReceiptItem={ImportReceiptItems}
+                data={datarecep}
+                supplie={dataPaten}
+                getuserid={datausers}
+                ImportReceiptItem={datadetails}
                 dataitem={getitem}
                 onchage={changestatus}
+                ExportReceiptsId={ExportReceiptsId}
               />
             </div>
           </Col>

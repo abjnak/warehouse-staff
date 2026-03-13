@@ -3,7 +3,14 @@ import { Button, Form, Table } from "react-bootstrap";
 import "../styles/PurchaseRequestTable.css";
 import { Link } from "react-router-dom";
 
-function PurchaseRequestPagecom({ data, handfiler, arr, suppli, user }) {
+function PurchaseRequestPagecom({
+  data,
+  handfiler,
+  arr,
+  suppli,
+  departmentsname,
+  user,
+}) {
   return (
     <div className="pr-table-wrapper">
       <div className="pr-table-header">
@@ -14,14 +21,16 @@ function PurchaseRequestPagecom({ data, handfiler, arr, suppli, user }) {
           <p className="pr-table-subtitle">
             Theo dõi trạng thái các phiếu yêu cầu mua vật tư trong kho.
           </p>
-        </div >
-        <div> <Button as={Link} to="/CreatePuchase" className="pr-create-btn">
-          IMPORT
-        </Button>
-        <Button as={Link} to="/ExportReceiptPage" className="pr-create-btn">
-          EXPORT
-        </Button></div>
-       
+        </div>
+        <div>
+          {" "}
+          <Button as={Link} to="/CreatePuchase" className="pr-create-btn">
+            IMPORT
+          </Button>
+          <Button as={Link} to="/ExportReceiptPage" className="pr-create-btn">
+            EXPORT
+          </Button>
+        </div>
       </div>
       <div>
         {" "}
@@ -31,7 +40,7 @@ function PurchaseRequestPagecom({ data, handfiler, arr, suppli, user }) {
         >
           <option>SELECT STATUS</option>
           <option value="COMPLETED">COMPLETED</option>
-          <option value="iNCOMPLETED">iNCOMPLETED</option>
+          <option value="INCOMPLETED">INCOMPLETED</option>
           <option value="DRAFT">DRAFT</option>
         </Form.Select>
         <Form.Select
@@ -53,7 +62,7 @@ function PurchaseRequestPagecom({ data, handfiler, arr, suppli, user }) {
         <thead>
           <tr>
             <th>Code</th>
-            <th>Supplier</th>
+            <th>Partner</th>
             <th>Created By</th>
             <th>Date</th>
             <th>Total</th>
@@ -64,22 +73,31 @@ function PurchaseRequestPagecom({ data, handfiler, arr, suppli, user }) {
         <tbody>
           {data?.map((pucha) => {
             const sup = suppli
-              .filter((pu) => pu.id === pucha.supplierId)
+              .filter((pu) => pu.id === pucha?.supplierId)
               .map((ma) => ma.name);
             const users = user
-              .filter((pu) => pu.id === pucha.createdBy)
+              .filter((pu) => pu.id === pucha?.createdBy)
               .map((ma) => ma.username);
+            const depar = departmentsname
+              .filter((pu) => pu.id === pucha?.departmentId)
+              .map((ma) => ma.name);
 
             return (
               <tr key={pucha?.id}>
                 <td>{pucha?.code}</td>
-                <td>{sup}</td>
+                <td>{sup.length > 0 ? sup : depar}</td>
                 <td>{users}</td>
                 <td>{pucha?.createdAt}</td>
                 <td>{pucha?.totalAmount}</td>
                 <td>{pucha?.status}</td>
                 <td>
-                  <Button variant="primary" as={Link} to={`/DetailsPurchase/${pucha.id}`} >Detail</Button>
+                  <Button
+                    variant="primary"
+                    as={Link}
+                    to={`/DetailsPurchase/${pucha.code}/${pucha.id}`}
+                  >
+                    Detail
+                  </Button>
                 </td>
               </tr>
             );

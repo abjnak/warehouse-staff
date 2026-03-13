@@ -8,6 +8,7 @@ function Getpucharsebyid({
   ImportReceiptItem,
   dataitem,
   onchage,
+  
 }) {
   return (
     <div>
@@ -23,7 +24,7 @@ function Getpucharsebyid({
           </ListGroup.Item>
           <ListGroup.Item>
             <span>
-              <b>Supplies: </b>
+              <b>Partner: </b>
             </span>
             <span>{supplie?.name}</span>
           </ListGroup.Item>
@@ -53,7 +54,7 @@ function Getpucharsebyid({
                 bg={
                   data?.status === "DRAFT"
                     ? "secondary"
-                    : data?.status === "iNCOMPLETED"
+                    : data?.status === "INCOMPLETED"
                       ? "warning"
                       : "success"
                 }
@@ -61,7 +62,7 @@ function Getpucharsebyid({
                 {data?.status}{" "}
               </Badge>
             </div>
-            {data?.status !== "COMPLETED" && data?.status !== "iNCOMPLETED" && (
+            {data?.status !== "COMPLETED" && data?.status !== "INCOMPLETED" && (
               <Form.Select
                 size="sm"
                 style={{ width: "130px" }}
@@ -69,7 +70,7 @@ function Getpucharsebyid({
                 onChange={(e) => onchage(data?.id, e.target.value)}
               >
                 <option value="DRAFT">DRAFT</option>
-                <option value="iNCOMPLETED">iNCOMPLETED</option>
+                <option value="INCOMPLETED">INCOMPLETED</option>
                 <option value="COMPLETED">COMPLETE</option>
               </Form.Select>
             )}
